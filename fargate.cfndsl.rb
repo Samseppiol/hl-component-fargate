@@ -1,6 +1,6 @@
 CloudFormation do
 
-  az_conditions_resources('SubnetCompute', maximum_availability_zones)
+  az_conditions_resources('SubnetCompute', maximum_availability_zones) unless use_subnet_list
 
   log_retention = 7 unless defined?(log_retention)
   Resource('LogGroup') {
