@@ -29,8 +29,9 @@ CfhighlanderTemplate do
 
     ComponentParam 'EnableScaling', 'false', allowedValues: ['true','false']
 
+    ComponentParam "Subnets", '', type: 'List<AWS::EC2::Subnet::Id>'
     maximum_availability_zones.times do |az|
-      ComponentParam "SubnetCompute#{az}"
+      ComponentParam "SubnetCompute#{az}", ''
     end
 
     #create component params for service image tag parameters
