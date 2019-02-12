@@ -29,7 +29,7 @@ CfhighlanderTemplate do
 
     ComponentParam 'EnableScaling', 'false', allowedValues: ['true','false']
 
-    ComponentParam "Subnets", '', type: 'List<AWS::EC2::Subnet::Id>' if use_subnet_list
+    ComponentParam "Subnets", '' if use_subnet_list
     maximum_availability_zones.times do |az|
       ComponentParam "SubnetCompute#{az}", ''
     end unless use_subnet_list
